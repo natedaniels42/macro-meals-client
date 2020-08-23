@@ -5,10 +5,12 @@
 }
 
 body {
+  position: relative;
+  top: 20px;
   min-height: 92vh;
 }
 
 h1 {
   position: relative;
-  top: 40px;
 }
+
