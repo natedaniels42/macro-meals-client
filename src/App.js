@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import Routes from './config/routes';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
@@ -9,7 +11,7 @@ function App() {
     <div>
       <NavBar />
       <body>
-        <Home />
+        <Routes />
       </body>
       <Footer />
     </div>
