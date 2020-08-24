@@ -1,6 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+import UserModel from '../../models/User';
+
+const url = 'http://localhost:4000/api/v1/auth/register';
 
 class Register extends React.Component {
     state = {
@@ -18,7 +21,8 @@ class Register extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`${process.env.REACT_APP_API}/auth/register`, this.state)
+        console.log(process.env.REACT_APP_API);
+        axios.post(url, this.state)
             .then((res) => {
                 console.log(res);
                 this.props.history.push('/login');
