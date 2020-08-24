@@ -6,6 +6,11 @@ class MealModel {
         return fetch(url)
             .then((response) => response.json())
     }
+
+    static getMealById = (mealId) => {
+        return fetch(`${url}/${mealId}`)
+            .then((response) => response.json())
+    }
 }
 
 export default MealModel;

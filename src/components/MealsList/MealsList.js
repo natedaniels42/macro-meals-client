@@ -3,7 +3,7 @@ import Meal from '../Meal/Meal';
 
 function MealsList(props) {
     const mealsList = props.meals.map((meal) => {
-        return <Meal key={meal._id} meal={meal} />
+        return <Meal key={meal._id} meal={meal} list={true} />
     })
 
     return (
