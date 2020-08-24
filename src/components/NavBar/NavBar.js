@@ -2,21 +2,33 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 
-function NavBar() {
+function NavBar({ currentUser, logout }) {
     return (
         <nav>
             <div className="company-info">
-                <a href="/" className="company-container">
+                <NavLink to="/" className="company-container">
                     <img className="company-image" src="nutrition.png" alt="company-logo" />
                     <h3 className="company-name">Macro Meals</h3>
-                </a>
+                </NavLink>
             </div>
-            <div className="nav-right">
-                <a href="/signup" className="nav-link">Signup</a>
-                <a href="/login" className="nav-link">Login</a>
-                <a href="/profile" className="nav-link">Profile</a>
-                <a href="search" className="nav-link">Search Meals</a>
-                <a href="/" className="nav-link">Log Out</a>
+            <div className="nav-items">
+                <ul className="nav-right">
+                    <li>
+                        <NavLink to="/signup" className="nav-link">Signup</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/login" className="nav-link">Login</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/profile" className="nav-link">Profile</NavLink>
+                    </li>  
+                    <li>
+                        <NavLink to="search" className="nav-link">Search Meals</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/" className="nav-link">Log Out</NavLink>
+                    </li>              
+                </ul>
             </div>
         </nav>
     )

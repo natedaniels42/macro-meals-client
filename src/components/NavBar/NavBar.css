@@ -32,9 +32,17 @@ nav {
     font-size: 40px;
 }
 
+.nav-items {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .nav-right {
     display: flex;
     align-items: center;
+    list-style: none;
+    position: absolute;
     right: 0;
 }
 
@@ -42,4 +50,4 @@ nav {
     color:white;
     text-decoration: none;
     padding: 0 5px;
-;}
+}
