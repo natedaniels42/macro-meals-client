@@ -1,5 +1,5 @@
 import React from 'react'; 
-import MealsList from '../../components/MealsList/MealsList';
+import MealsList from '../../components/Meals/Meals';
 import MealModel from '../../models/Meal';
 
 class MealsListContainer extends React.Component {

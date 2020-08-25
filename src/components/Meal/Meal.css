@@ -1,6 +1,6 @@
 .meal-card {
     position: relative;
-    width: 400px;
+    width: 30vw;
     display: flex;
     flex-direction: row;
 }

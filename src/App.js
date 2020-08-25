@@ -10,6 +10,7 @@ import setAuthHeader from './utils/setAuthHeader';
 class App extends React.Component {
   state= {
     currentUser: '',
+    name: '',
   };
 
   componentDidMount() {

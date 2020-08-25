@@ -1,24 +1,28 @@
 import React from 'react';
 import UserModel from '../../models/User';
+import MealListModel from '../../models/MealList';
+import MealLists from '../../components/MealLists/MealLists';
 
 class ProfileContainer extends React.Component {
     state = {
         user: {},
+        mealLists: [], 
     };
     
     componentDidMount() {
-        UserModel.getUserById(this.props.currentUser)
+        MealListModel.getAllMealsLists()
             .then((result) => {
-                console.log(result);
-                this.setState({user: result});
+                this.setState({mealLists: result});
             })
             .catch((err) => console.log(err))
     }
+
 
     render() {
         return(
             <div>
                 <h1>This is the Profile</h1>
+                <MealLists mealLists={this.state.mealLists} />
             </div>
         )
     }
