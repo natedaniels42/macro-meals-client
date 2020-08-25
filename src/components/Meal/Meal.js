@@ -1,23 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Meal.css';
 
 function Meal(props) {
     const { meal, list } = props;
-
-    const ingredientList = meal.ingredients.map((ingredient) => {
-        return <p>{ingredient}</p>
-    });
+    console.log(meal);
+    //const ingredientList = meal.ingredients.map((ingredient) => {
+    //    return <p>{ingredient}</p>
+    //});
 
     return (
         <Link to={`/meals/${meal._id}`}>
             <div className="meal-card">
-                <img src={meal.image} width="100" alt={meal.name} />
-                <p>{meal.name}</p>
-                {!list && (
-                <div>
-                    {ingredientList}
-                </div>
-                )}
+                <img className="meal-image" src={meal.image} width="250" alt={meal.name} />
+                <p className="meal-name">{meal.name}</p>
+                
             </div>
         </Link>    
     )

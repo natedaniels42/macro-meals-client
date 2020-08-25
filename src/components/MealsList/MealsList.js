@@ -1,5 +1,6 @@
 import React from 'react';
 import Meal from '../Meal/Meal';
+import './MealsList';
 
 function MealsList(props) {
     const mealsList = props.meals.map((meal) => {

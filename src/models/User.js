@@ -11,6 +11,11 @@ class UserModel {
         })
             .then((response) => response.json())
     };
+
+    static getUserById = (userId) => {
+        return fetch(`${url}/${userId}`) 
+            .then((response) => response.json())
+    };
 };
 
 export default UserModel;

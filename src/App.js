@@ -4,7 +4,6 @@ import jwt_decode from 'jwt-decode';
 import Routes from './config/routes';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
-import Home from './components/Home/Home';
 import './App.css';
 import setAuthHeader from './utils/setAuthHeader';
 
@@ -41,9 +40,9 @@ class App extends React.Component {
     return (
       <div>
         <NavBar currentUser={this.state.currentUser} logout={this.logout} />
-        <body>
+        <main>
           <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} />
-        </body>
+        </main>
         <Footer />
       </div>
     );

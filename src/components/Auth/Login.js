@@ -25,9 +25,9 @@ class Login extends React.Component {
                 this.props.history.push('/profile');
             })
             .catch((err) => {
-                //console.log(err.response.status);
-                //console.log(err.response.data);
-                //console.log(err.response.message);
+                console.log(err.response.status);
+                console.log(err.response.data);
+                console.log(err.response.message);
             });
     }
 

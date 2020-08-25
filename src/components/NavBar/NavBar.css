@@ -6,12 +6,13 @@ nav {
     display: flex;
     background-color: lightgreen;
     height: 40px;
+    z-index: 10;
 }
 
 .company-info {
     display: flex;
     align-items: center;
-
+    width: 400px;
 }
 
 .company-container {
@@ -35,7 +36,8 @@ nav {
 .nav-items {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 50%;
+    right: 0;
 }
 
 .nav-right {

@@ -1,0 +1,11 @@
+.meal-card {
+    position: relative;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+}
+
+.meal-name {
+    position: absolute;
+    bottom: 0;
+}

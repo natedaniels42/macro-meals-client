@@ -4,9 +4,9 @@
   padding: 0;
 }
 
-body {
+main {
   position: relative;
-  top: 20px;
+  top: 40px;
   min-height: 92vh;
 }
 

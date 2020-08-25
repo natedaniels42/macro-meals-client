@@ -8,6 +8,7 @@ class MealContainer extends React.Component {
     };
 
     componentDidMount() {
+        console.log(this.props);
         MealModel.getMealById(this.props.match.params.id)
             .then((result) => {
                 console.log(result);
@@ -17,7 +18,7 @@ class MealContainer extends React.Component {
     }
 
     render() {
-        return <Meal meal={this.state.meal} list={false} />;
+        return <Meal meal={this.state.meal} list={false}/>;
     }
 }
 
