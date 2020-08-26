@@ -18,8 +18,8 @@ function MealList(props) {
         <div>
             <p>{props.mealList.name}</p>
             <NavLink to='/update'>Update List Name</NavLink>
-            <button onClick={handleDelete}>delete</button>
-            <a href="/search"><button>Search Meals</button></a>
+            <button className="delete" onClick={handleDelete}>delete</button>
+            <NavLink to="/meals" meallist={props.mealList}><button>Search Meals</button></NavLink>
             {!props.mealList.meals && (
                 <p>No Meals Yet</p>
             )}
@@ -29,5 +29,6 @@ function MealList(props) {
         </div>
     )
 }
+
 
 export default MealList;

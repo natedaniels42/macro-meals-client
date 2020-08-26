@@ -22,7 +22,7 @@ class Meals extends React.Component {
         }
         
 
-        return <Meal key={meal._id} meal={meal} list={true} />
+        return <Meal key={meal._id} meal={meal} meallist={this.props.meallist} list={true} />
     }
 
     onChange = (event) => {
@@ -33,11 +33,24 @@ class Meals extends React.Component {
         return (
             <div className="meals-container">
                 <label htmlFor="carbs">Carbs</label>
-                <input type="text" min="0" max="50" name="carbs" onInput={this.onChange} />
+                <input type="range" min="0" max="50" name="carbs" list="tickmarks" onInput={this.onChange} />
                 <label htmlFor="protein">Protein</label>
-                <input type="text" min="0" max="50" name="protein" onInput={this.onChange} />
+                <input type="range" min="0" max="50" name="protein" onInput={this.onChange} />
                 <label htmlFor="fat">Fat</label>
-                <input type="text" min="0" max="50" name="fat" onInput={this.onChange} />
+                <input type="range" min="0" max="50" name="fat" onInput={this.onChange} />
+                <datalist id="tickmarks">
+                    <option value="0">0</option>
+                    <option value="5"></option>
+                    <option value="10"></option>
+                    <option value="15"></option>
+                    <option value="20"></option>
+                    <option value="25">25</option>
+                    <option value="30"></option>
+                    <option value="35"></option>
+                    <option value="40"></option>
+                    <option value="45"></option>
+                    <option value="50">50</option>
+                </datalist>
                 {this.props.meals.map((meal) => {
                     return this.renderMeal(meal);
                 })}

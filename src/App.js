@@ -15,6 +15,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
+    
     if (token) {
       setAuthHeader(token);
       const decodedToken = jwt_decode(token);
@@ -25,7 +26,6 @@ class App extends React.Component {
   setCurrentUser = (token) => {
     localStorage.setItem('token', token);
     setAuthHeader(token);
-
     const decodedToken = jwt_decode(token);
     this.setState({currentUser: decodedToken.id});
   };
