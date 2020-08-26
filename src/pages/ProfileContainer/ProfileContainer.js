@@ -1,7 +1,8 @@
 import React from 'react';
-import UserModel from '../../models/User';
+//import UserModel from '../../models/User';
 import MealListModel from '../../models/MealList';
 import MealLists from '../../components/MealLists/MealLists';
+import Profile from '../../components/Profile/Profile';
 
 class ProfileContainer extends React.Component {
     state = {
@@ -21,7 +22,7 @@ class ProfileContainer extends React.Component {
     render() {
         return(
             <div>
-                <h1>This is the Profile</h1>
+                <Profile />
                 <MealLists mealLists={this.state.mealLists} />
             </div>
         )

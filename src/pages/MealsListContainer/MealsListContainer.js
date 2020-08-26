@@ -1,5 +1,5 @@
 import React from 'react'; 
-import MealsList from '../../components/Meals/Meals';
+import Meals from '../../components/Meals/Meals';
 import MealModel from '../../models/Meal';
 
 class MealsListContainer extends React.Component {
@@ -16,7 +16,7 @@ class MealsListContainer extends React.Component {
     }
 
     render() {
-        return <MealsList meals={this.state.meals} />
+        return <Meals meals={this.state.meals} />
     }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-import UserModel from '../../models/User';
+//import UserModel from '../../models/User';
 
 const url = 'http://localhost:4000/api/v1/auth/register';
 

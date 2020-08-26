@@ -31,7 +31,7 @@ function NavBar({ currentUser, logout }) {
                             <NavLink to="/profile" className="nav-link">Profile</NavLink>
                         </li>  
                         <li>
-                            <NavLink to="search" className="nav-link">Search Meals</NavLink>
+                            <NavLink to="/meals" className="nav-link">Search Meals</NavLink>
                         </li>
                         <li>
                             <NavLink to="/" onClick={logout} className="nav-link">Log Out</NavLink>
