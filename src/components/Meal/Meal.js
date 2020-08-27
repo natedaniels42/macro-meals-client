@@ -24,7 +24,6 @@ class Meal extends React.Component {
     }
 
     render() {
-        console.log(this.props.match.params.id);
         return (
             <div className="meal-box">
                 <Link to={`/meals/${this.props.meal._id}`}>

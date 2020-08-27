@@ -22,8 +22,8 @@ class MealListModel {
             .then((response) => response.json())
     };
 
-    static updateMealList = (mealList) => {
-        return fetch(url, {
+    static updateMealList = (mealList, id) => {
+        return fetch(`${url}/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

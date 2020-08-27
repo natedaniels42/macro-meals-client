@@ -7,13 +7,15 @@ class UpdateMealListContainer extends React.Component {
         name: this.props.name,
     }
 
+
+
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
     };
 
     handleSubmit = (event) => {
         event.preventDefault();
-        MealListModel.updateMealList(this.state)
+        MealListModel.updateMealList(this.props.mealList)
             .then((result) => {
                 console.log(result);
             });
@@ -21,6 +23,7 @@ class UpdateMealListContainer extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div>
                 <h2>Update List Name</h2>

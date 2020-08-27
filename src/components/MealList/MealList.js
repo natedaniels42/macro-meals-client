@@ -12,7 +12,6 @@ class MealList extends React.Component {
     componentDidMount() {
         MealListModel.getMealListById(this.props.mealList._id)
             .then((result) => {
-                console.log(result)
                 this.setState({mealList: result})
             })
             .catch((err) => console.log(err))
@@ -29,7 +28,7 @@ class MealList extends React.Component {
             <div className="meallist-box">
                 <p>{this.props.mealList.name}</p>
                 <div className="button-box">
-                    <NavLink to='/update'><button>Update List Name</button></NavLink>
+                    <NavLink to={`/profile/${this.state.mealList.id}`} mealList={this.state.mealList}><button>Update List Name</button></NavLink>
                     <NavLink to='/profile'><button onClick={this.handleDelete}>delete</button></NavLink>
                     <NavLink to="/meals" meallist={this.props.mealList}><button>Search Meals</button></NavLink>
                 </div>

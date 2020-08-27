@@ -44,6 +44,7 @@
 .ingredient-list {
      position: absolute;
      right: 20px;
+     bottom: 20px;
 }
 
 .ingredient-box {

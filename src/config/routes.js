@@ -17,7 +17,7 @@ export default ({ currentUser, setCurrentUser, props }) => (
         <Route path='/meals' component={MealsListContainer} />
         <Route path='/signup' component={Register} />
         <Route path='/login' render={() => <Login setCurrentUser={setCurrentUser} />} />
-        <Route path='/update' render={() => <UpdateMealListContainer props={props} />} />
+        <Route path='/profile/:id' render={() => <UpdateMealListContainer props={props} />} />
         <Route exact path='/profile/new' component={NewMealListContainer} />
         <Route path='/profile' render={() => <ProfileContainer currentUser={currentUser} />} />
     </Switch>
