@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Catamaran', sans-serif;
+}
+
 main {
   position: relative;
   top: 40px;

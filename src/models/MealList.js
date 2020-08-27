@@ -6,6 +6,11 @@ class MealListModel {
             .then((response) => response.json())
     };
 
+    static getMealListById = (mealListId) => {
+        return fetch(`${url}/${mealListId}`)
+            .then((response) => response.json())
+    }
+
     static createMealList = (mealList) => {
         return fetch(url, {
             method: 'POST', 
@@ -36,6 +41,14 @@ class MealListModel {
             },
         })
             .then((response) => response.json())
+    };
+
+    static addMeal = (mealListId, mealId) => {
+        console.log(mealId);
+        return fetch(`${url}/${mealListId}/addmeal/${mealId}`, {
+            method: 'POST',  
+        })
+        .then((response) => response.json())
     };
 };
 

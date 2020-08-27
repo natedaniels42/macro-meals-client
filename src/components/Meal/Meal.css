@@ -1,3 +1,28 @@
+.meal-box {
+    width: 300px;
+}
+.meal-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.meal-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.meal-link {
+    color: #75B32B;
+    text-decoration: none;
+}
+
+.meal-image:hover {
+    opacity: 1.0;
+}
+
 .meal-card {
     position: relative;
     width: 30vw;
@@ -8,4 +33,26 @@
 .meal-name {
     position: absolute;
     bottom: 0;
+    color: black;
+    font-size: 20px;
+}
+
+.nutrition-info {
+    margin-top: 10px;
+}
+
+.ingredient-list {
+     position: absolute;
+     right: 20px;
+}
+
+.ingredient-box {
+     border: 2px solid #75B32B;
+     padding: 5px;
+}
+  
+.add-meal button {
+    background-color: #75B32B;
+    color: white;
+    opacity: .75;
 }

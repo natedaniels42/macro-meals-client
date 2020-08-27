@@ -1,0 +1,12 @@
+.meallist-box {
+    border: 1px solid black;
+}
+
+.button-box button {
+    width: 80px;
+    height: 30px;
+    background-color: #4D7A49;
+    opacity: .75;
+    color: white;
+    margin: 5px;
+}

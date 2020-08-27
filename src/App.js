@@ -32,6 +32,9 @@ class App extends React.Component {
 
   logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    localStorage.removeItem('email');
+    localStorage.removeItem('image');
     setAuthHeader();
     this.setState({currentUser: ''});
     this.props.history.push('/');

@@ -1,0 +1,12 @@
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    flex-grow: 2
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}

@@ -1,10 +1,12 @@
 import React from 'react';
 import Meal from '../../components/Meal/Meal';
 import MealModel from '../../models/Meal';
+import MealListModel from '../../models/MealList'
 
 class MealContainer extends React.Component {
     state = {
         meal: {},
+        mealLists: [],
     };
 
     componentDidMount() {
@@ -15,10 +17,16 @@ class MealContainer extends React.Component {
                 this.setState({meal: result});
             })
             .catch((err) => console.log(err))
+        
+        MealListModel.getAllMealsLists()
+            .then((result) => {
+                this.setState({mealLists: result});
+            })
+            .catch((err) => console.log(err))
     }
 
     render() {
-        return <Meal meal={this.state.meal} list={false}/>;
+        return <Meal meal={this.state.meal} list={false} mealLists={this.state.mealLists} />;
     }
 }
 

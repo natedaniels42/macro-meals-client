@@ -2,33 +2,47 @@ import React from 'react';
 import Meal from '../Meal/Meal';
 import { NavLink } from 'react-router-dom';
 import MealListModel from '../../models/MealList';
+import './MealList.css';
 
-function MealList(props) {
-    const meals = props.mealList.meals.map((meal) => {
-        return <Meal key={meal._id} meal={meal} list={true} />
-    })
+class MealList extends React.Component {
+    state = {
+        mealList: {}
+    }
+
+    componentDidMount() {
+        MealListModel.getMealListById(this.props.mealList._id)
+            .then((result) => {
+                console.log(result)
+                this.setState({mealList: result})
+            })
+            .catch((err) => console.log(err))
+    } 
     
-    const handleDelete = () => {
-        MealListModel.deleteMealList(props.mealList._id)
-            .then((result) => props.history.push('/profile'))
+    handleDelete = () => {
+        MealListModel.deleteMealList(this.props.mealList._id)
+            .then((result) => this.props.history.push('/profile'))
             .catch((err) => console.log(err));
     }
 
-    return (
-        <div>
-            <p>{props.mealList.name}</p>
-            <NavLink to='/update'>Update List Name</NavLink>
-            <button className="delete" onClick={handleDelete}>delete</button>
-            <NavLink to="/meals" meallist={props.mealList}><button>Search Meals</button></NavLink>
-            {!props.mealList.meals && (
-                <p>No Meals Yet</p>
-            )}
-            {props.mealListmeals && (
-                {meals}
-            )}
-        </div>
-    )
+    render() {
+        return (
+            <div className="meallist-box">
+                <p>{this.props.mealList.name}</p>
+                <div className="button-box">
+                    <NavLink to='/update'><button>Update List Name</button></NavLink>
+                    <NavLink to='/profile'><button onClick={this.handleDelete}>delete</button></NavLink>
+                    <NavLink to="/meals" meallist={this.props.mealList}><button>Search Meals</button></NavLink>
+                </div>
+                {this.state.mealList.meals && (
+                    this.state.mealList.meals.map((meal) => {return <Meal key={meal._id} meal={meal} list={true} />
+                    })
+                )
+            }
+            </div>
+        )
+    }
 }
+
 
 
 export default MealList;
