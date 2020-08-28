@@ -48,9 +48,9 @@ class Meal extends React.Component {
                     <p>Click <a className="meal-link" href={this.props.meal.link} target="_blank" rel="noopener norefferer">here</a> to go to the recipe</p>    
                     <div className="nutrition-info">
                         <p>Calories: {this.props.meal.calories}</p>
-                        <p>Carbs: {this.props.meal.carbs}</p>
-                        <p>Protein: {this.props.meal.protein}</p>
-                        <p>Fat: {this.props.meal.fat}</p>
+                        <p>Carbs: {this.props.meal.carbs}g</p>
+                        <p>Protein: {this.props.meal.protein}g</p>
+                        <p>Fat: {this.props.meal.fat}g</p>
                     </div>
                     <form className="add-meal" onSubmit={this.handleSubmit}>
                         <label htmlFor="mealList">Choose a list to add this meal:</label>

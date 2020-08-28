@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Macro Meals
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+This project was an inspiration of my wife.  When asking her for ideas of what I could build she wanted to see an app that let you search for meals based on specific macronutrient content.  Beyond that she had many other ideas for extra features which will be implemented at a later date.
 
-### `npm start`
+## User Stories
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app is called Macro Meals.  The purpose of the app is to allow users to set up a profile and then search for recipe ideas based on their specific macronutrient (protein, carbohydrates, fat) requirements.Then the user can pick a recipe they like and save it to their profile.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+When a user first goes to the app they will see the home page which will consist of a nav bar, a welcome message, and information about the site. The nav bar, which will appear on all pages, will consist of different links depending on if the user is logged in or not.  If they are not logged in the links will be home, sign up, and log in.  If they are signed in the nav bar will have home, profile, search meals, and log out.  
 
-### `npm test`
+When they click on sign up they will be taken to a page where they will enter their name, username, email and password. Once they have signed up, they will receive a welcome email and they will be taken to their profile page.  They will also be taken to the profile page on log in.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The profile page will consist of the user’s username, email, a picture which will initially be a default image, an option to edit their information, a list of meals, a button to go to the search recipes page, and a button to create a new meal list.  If the user clicks on the edit profile button they will be taken to a form like the sign up except now they will also be able to upload an image.  Initially the meals list will just say “no meals yet”. The user will be able to add meals by going to the search recipes page.  
 
-### `npm run build`
+The search recipes page will have 3 range inputs representing protein, carbs, and fats.  The recipes will be filtered by if they are within 10 grams of the chosen number. Once those 3 fields are chosen, the user will click a find meals button.  This will take them to an index of all the meals that fit the criteria.  For each meal you will see the name of the meal and an image.  When you click on the meal card it will take you to a show page which has the name and image but also includes the calories, carbs, fat, protein, a basic ingredient list and a link to the actual recipe’s website page. Below the image will be a button to add the meal to the user’s meals list. Above the ingredient list will be a button that will email the ingredient list and then send you to a confirmation page that says the email has been sent. Below the image will be a button to add the meal to the user’s meals list. You will then be redirected to the profile page.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once there are meals listed you will see the same meal card from the meals index page and there will be a button to delete the item from the list and a button to edit the recipe if you decide you want to make adjustments to the ingredients.   
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Wireframes
+![](./home-page.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ERDs
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technologies Used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Javascript
+### Node Express JS
+### MongoDB
+### ReactJs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Front-End Dependencies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### axios
+### react
+### react-dom
+### react-router-dom
+### react-scripts
+### REACT_APP_API=http://localhost:4000/api/v1
 
-## Learn More
+## Future Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+There are many features that I would like to add to this as I continue to work on it.  I would like the user to be able to search not only by the specific amount of grams of the individual macronutrients but also as percentage breakdown of each component.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Another idea that was requested was the ability to filter results by specific food items (for example: chicken, fish, etc.) by dragging a picture of the item to a plate. 
 
-### Code Splitting
+I want to give the user the option to click a button on the meal show page and receive an email of the ingredient list for that meal.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+I would also like to incorporate an external API to allow for many more meal options.
 
-### Analyzing the Bundle Size
+## More coming soon
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
