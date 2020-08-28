@@ -57,6 +57,7 @@
     background-color: #75B32B;
     color: white;
     opacity: .75;
+    cursor: pointer;
 }
 
 .add-meal {

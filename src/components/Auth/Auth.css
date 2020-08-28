@@ -21,9 +21,10 @@
     flex-direction: column;
 }
 
-.auth-form button, button {
+.auth-form button {
     width: 80px;
     height: 30px;
     background-color: #4D7A49;
     margin: 20px auto;
+    cursor: pointer;
 }

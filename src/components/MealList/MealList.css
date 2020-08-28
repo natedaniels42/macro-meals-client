@@ -13,6 +13,7 @@ button {
     opacity: .75;
     color: white;
     margin: 5px;
+    cursor: pointer;
 }
 
 .delete-button {

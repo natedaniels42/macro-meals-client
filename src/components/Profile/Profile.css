@@ -17,6 +17,7 @@
     background-color: #4D7A49;
     opacity: .75;
     color: white;
+    cursor: pointer;
 }
 
 .nav, .profile-welcome {
