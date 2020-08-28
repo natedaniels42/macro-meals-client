@@ -1,12 +1,30 @@
 .meallist-box {
-    border: 1px solid black;
+    position: relative;
+    border: 5px solid black;
+    margin: 5% 15%;
+    border-radius: 10px;
 }
 
-.button-box button {
+
+button {
     width: 80px;
     height: 30px;
     background-color: #4D7A49;
     opacity: .75;
     color: white;
     margin: 5px;
+}
+
+.delete-button {
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.list-name {
+    background-color: #AEBAA0;
+    padding: 10px 0 10px 40px;
+    opacity: .8;
+    color: white;
 }

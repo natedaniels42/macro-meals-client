@@ -26,11 +26,13 @@ class MealList extends React.Component {
     render() {
         return (
             <div className="meallist-box">
-                <p>{this.props.mealList.name}</p>
+                <h2 className="list-name">{this.props.mealList.name}</h2>
                 <div className="button-box">
-                    <NavLink to={`/profile/${this.state.mealList.id}`} mealList={this.state.mealList}><button>Update List Name</button></NavLink>
-                    <NavLink to='/profile'><button onClick={this.handleDelete}>delete</button></NavLink>
-                    <NavLink to="/meals" meallist={this.props.mealList}><button>Search Meals</button></NavLink>
+                    <NavLink to={`/profile/${this.state.mealList._id}`} mealList={this.state.mealList}><button >Update List Name</button></NavLink>
+                    <NavLink className="search-button" to="/meals" meallist={this.props.mealList}><button>Search Meals</button></NavLink>
+                </div>
+                <div className="delete-button">
+                    <button onClick={this.handleDelete}>delete list</button>
                 </div>
                 {this.state.mealList.meals && (
                     this.state.mealList.meals.map((meal) => {return <Meal key={meal._id} meal={meal} list={true} />

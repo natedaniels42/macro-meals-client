@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import MealListModel from '../../models/MealList';
+import './NewMealListContainer.css';
 
 class NewMealListContainer extends React.Component {
     state = {
@@ -22,9 +23,9 @@ class NewMealListContainer extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="new-box">
                 <h2>What would you like to call this list?</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form className="form-box" onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name</label>
                         <input onInput={this.handleChange} type="text" name="name" />

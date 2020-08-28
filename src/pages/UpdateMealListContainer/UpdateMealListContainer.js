@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import MealListModel from '../../models/MealList';
+import './Update.css';
 
 class UpdateMealListContainer extends React.Component {
     state = {
@@ -25,14 +26,14 @@ class UpdateMealListContainer extends React.Component {
     render() {
         console.log(this.props);
         return (
-            <div>
+            <div className="update-box">
                 <h2>Update List Name</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form className="form-box" onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name</label>
                         <input onInput={this.handleChange} type="text" name="name" value={this.state.name} />
                     </div>
-                    <button type="submit">Update Name</button>
+                    <button className="update-button" type="submit">Update Name</button>
                 </form>
             </div>
         );

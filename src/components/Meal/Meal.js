@@ -53,6 +53,7 @@ class Meal extends React.Component {
                         <p>Fat: {this.props.meal.fat}</p>
                     </div>
                     <form className="add-meal" onSubmit={this.handleSubmit}>
+                        <label htmlFor="mealList">Choose a list to add this meal:</label>
                         {this.props.mealLists && (
                             this.props.mealLists.map((list, index) => {
                                 return <div>
