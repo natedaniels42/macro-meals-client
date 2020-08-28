@@ -19,10 +19,26 @@ The search recipes page will have 3 range inputs representing protein, carbs, an
 Once there are meals listed you will see the same meal card from the meals index page and there will be a button to delete the item from the list and a button to edit the recipe if you decide you want to make adjustments to the ingredients.   
 
 ## Wireframes
+### Home page
 ![](./home-page.png)
 
-## ERDs
+### Signup
+![](./signup.png)
 
+### Login
+![](./login.png)
+
+### Search
+![](./search.png)
+
+### Meals index
+![](./meals-index.png)
+
+### Meals show
+![](./meals-show.png)
+
+## ERDs
+![](./erd.png)
 
 ## Technologies Used
 
