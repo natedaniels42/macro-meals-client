@@ -41,6 +41,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(process.env.REACT_APP_API_URL);
     return (
       <div>
         <NavBar currentUser={this.state.currentUser} logout={this.logout} />
