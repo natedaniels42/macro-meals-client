@@ -5,7 +5,7 @@ import './Auth.css';
 
 const url = 'http://localhost:4000/api/v1/auth/register';
 const validEmailRegex = 
-  RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+  RegExp(/^\w+@\w+\.\w+$/i);
 
 class Register extends React.Component {
     state = {
@@ -29,10 +29,10 @@ class Register extends React.Component {
         });
         switch (name) {
             case 'name':
-                errors.name = value.length < 8 ? 'Name is required' : '';
+                errors.name = value.length < 1 ? 'Name is required' : '';
                 break;
             case 'username':
-                errors.username = value.length < 8 ? 'Username is required' : '';
+                errors.username = value.length < 1 ? 'Username is required' : '';
                 break;
             case 'email':
                 errors.email = validEmailRegex.test(value) ? '' : 'Email must be valid';
