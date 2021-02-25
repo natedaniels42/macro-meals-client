@@ -3,17 +3,24 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
 
-const url = 'http://localhost:4000/api/v1/auth/login';
+const url = 'https://glacial-citadel-34005.herokuapp.com/api/v1/auth/login';
+const validEmailRegex = 
+  RegExp(/^\w+@\w+\.\w+$/i);
 
 class Login extends React.Component {
     state = {
         email: '',
         password: '',
+        errors: {
+            invalid: ''
+        }
     };
 
     handleChange = (event) => {
+        const { name, value } = event.target;
+        
         this.setState({
-            [event.target.name]: event.target.value,
+            [name]: value,
         });
     };
 

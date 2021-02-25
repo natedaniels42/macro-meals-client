@@ -1,4 +1,5 @@
-const url = 'http://localhost:4000/api/v1';
+require('dotenv').config();
+const url = 'https://glacial-citadel-34005.herokuapp.com/api/v1';
 
 
 class MealModel {
