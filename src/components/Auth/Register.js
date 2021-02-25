@@ -87,7 +87,7 @@ class Register extends React.Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="username">Username: </label>
-                        <input onChange={this.handleChange} type="text" id="username" name="username" value={this.state.username} />
+                        <input onChange={this.handleChange} type="text" id="username" name="username"  />
                         {errors.username.length > 0 && 
                             <span className="error">{errors.username}</span>}
                     </div>
