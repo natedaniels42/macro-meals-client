@@ -1,4 +1,4 @@
-const url = `${process.env.REACT_APP_API_URL}/users`;
+const url = 'https://glacial-citadel-34005.herokuapp.com/api/v1/users';
 
 class UserModel {
     static createUser = (user) => {

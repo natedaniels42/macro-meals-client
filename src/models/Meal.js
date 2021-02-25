@@ -1,6 +1,4 @@
-require('dotenv').config();
-const url = process.env.REACT_APP_API_URL;
-
+const url = 'https://glacial-citadel-34005.herokuapp.com/api/v1';
 
 class MealModel {
     static getAllMeals = () => {

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
 
-const url = `${process.env.REACT_APP_API_URL}/auth/register`;
+const url = `https://glacial-citadel-34005.herokuapp.com/api/v1/auth/register`;
 const validEmailRegex = 
   RegExp(/^\w+@\w+\.\w+$/i);
 

@@ -6,7 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import './App.css';
 import setAuthHeader from './utils/setAuthHeader';
-require('dotenv').config();
+
 class App extends React.Component {
   state= {
     currentUser: '',
@@ -41,7 +41,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(process.env.REACT_APP_API_URL);
+    console.log('https://glacial-citadel-34005.herokuapp.com/api/v1');
     return (
       <div>
         <NavBar currentUser={this.state.currentUser} logout={this.logout} />
