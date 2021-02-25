@@ -1,4 +1,4 @@
-const url = 'http://localhost:4000/api/v1/users';
+const url = 'https://glacial-citadel-34005.herokuapp.com/api/v1/users';
 
 class UserModel {
     static createUser = (user) => {
