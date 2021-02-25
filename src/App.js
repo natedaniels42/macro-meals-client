@@ -6,7 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import './App.css';
 import setAuthHeader from './utils/setAuthHeader';
-
+require('dotenv').config();
 class App extends React.Component {
   state= {
     currentUser: '',
