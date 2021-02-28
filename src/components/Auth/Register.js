@@ -21,6 +21,15 @@ class Register extends React.Component {
         }
     };
     
+    componentDidMount = () => {
+        this.setState({
+            name: '',
+            username: '',
+            email: '', 
+            password: ''
+        })
+    }
+
     handleChange = (event) => {
         const { name, value } = event.target;
         let errors = this.state.errors;
