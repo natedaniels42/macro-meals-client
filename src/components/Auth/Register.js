@@ -14,11 +14,11 @@ class Register extends React.Component {
         email: '',
         password: '',
         errors: {
-            form: '',
             name: '',
             username: '',
             email: '', 
             password: '',
+            form: '',
         }
     };
     
@@ -70,13 +70,12 @@ class Register extends React.Component {
                 .catch((err) => {
                     console.log(err.response.status);
                     console.log(err.response.data);
-                    console.log(err.response.message);
+                    console.log(err.response.data.message);
+                    alert(err.response.data.message);
                 });
         } else {
             console.log('Invalid form');
-            this.setState({
-                errors: {form: 'Invalid Information.  Please try again'}
-            })
+            alert('invalid form');
         }
     }
 
@@ -91,8 +90,6 @@ class Register extends React.Component {
         const { errors } = this.state;
         return (
             <form className="auth-form" onSubmit={this.handleSubmit}>
-                {errors.form.length > 0 &&
-                    <span classNane="error">{errors.form}</span>}
                 <div className="form-box">
                     <div className="form-group">
                         <label htmlFor="name">Name: </label>
