@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
 
-const url = `https://glacial-citadel-34005.herokuapp.com/api/v1/auth/register`;
+const url = `http://localhost:4000/api/v1/auth/register`;
 const validEmailRegex = 
   RegExp(/^\w+@\w+\.\w+$/i);
 
@@ -14,6 +14,7 @@ class Register extends React.Component {
         email: '',
         password: '',
         errors: {
+            form: '',
             name: '',
             username: '',
             email: '', 
@@ -73,6 +74,9 @@ class Register extends React.Component {
                 });
         } else {
             console.log('Invalid form');
+            this.setState({
+                errors: {form: 'Invalid Information.  Please try again'}
+            })
         }
     }
 
@@ -87,6 +91,8 @@ class Register extends React.Component {
         const { errors } = this.state;
         return (
             <form className="auth-form" onSubmit={this.handleSubmit}>
+                {errors.form.length > 0 &&
+                    <span classNane="error">{errors.form}</span>}
                 <div className="form-box">
                     <div className="form-group">
                         <label htmlFor="name">Name: </label>
