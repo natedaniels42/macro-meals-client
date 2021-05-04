@@ -4,7 +4,7 @@ nav {
     top: 0;
     width: 100%;
     display: flex;
-    background-color: #75B32B;
+    /*background-color: #75B32B;*/
     height: 40px;
     z-index: 10;
     opacity: .7;
@@ -19,7 +19,7 @@ nav {
 .company-container {
     display: flex;
     text-decoration: none;
-    color: white;
+    color: #75B32B;
 }
 
 .company-image {
@@ -41,6 +41,7 @@ nav {
     width: 50%;
     right: 0;
     height: 40px;
+    color: #75B32B;
 }
 
 .nav-right {
@@ -59,7 +60,7 @@ nav {
 }
 
 .nav-link {
-    color:white;
+    color:#75B32B;
     text-decoration: none;
     padding: 0 5px;
     height: 100%;
@@ -67,4 +68,6 @@ nav {
 
 .nav-link:hover {
     background-color: #94CC51;
+    color: white;
 }
+
