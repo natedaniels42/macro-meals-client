@@ -39,6 +39,10 @@ label {
     justify-content: center;
 }
 
+.filter input {
+    cursor: pointer;
+}
+
 output {
     margin-left: 20px;
 }
