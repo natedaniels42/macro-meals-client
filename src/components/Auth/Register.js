@@ -93,25 +93,25 @@ class Register extends React.Component {
                 <div className="form-box">
                     <div className="form-group">
                         <label htmlFor="name">Name: </label>
-                        <input onChange={this.handleChange} type="text" id="name" name="name" value={this.state.name} />
+                        <input className="form-input" onChange={this.handleChange} type="text" id="name" name="name" value={this.state.name} />
                         {errors.name.length > 0 &&
                             <span className="error">{errors.name}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="username">Username: </label>
-                        <input onChange={this.handleChange} type="text" id="username" name="username"  />
+                        <input className="form-input" onChange={this.handleChange} type="text" id="username" name="username"  />
                         {errors.username.length > 0 && 
                             <span className="error">{errors.username}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email: </label>
-                        <input onChange={this.handleChange} type="text" id="email" name="email" value={this.state.email} />
+                        <input className="form-input" onChange={this.handleChange} type="text" id="email" name="email" value={this.state.email} />
                         {errors.email.length > 0 && 
                             <span className="error">{errors.email}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password: </label>
-                        <input onChange={this.handleChange} type="password" id="password" name="password" />
+                        <input className="form-input" onChange={this.handleChange} type="password" id="password" name="password" />
                         {errors.password.length > 0 &&
                             <span className="error">{errors.password}</span>}
                     </div>

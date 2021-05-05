@@ -58,13 +58,13 @@ class Login extends React.Component {
                 <div className="form-box">
                     <div className="form-group">
                         <label htmlFor="email">Email: </label>
-                        <input onChange={this.handleChange} type="email" name="email" value={this.state.email} required/>
+                        <input className="form-input" onChange={this.handleChange} type="email" name="email" value={this.state.email} required/>
                         {errors.email.length > 0 && 
                             <span className="error">{errors.email}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password: </label>
-                        <input onChange={this.handleChange} type="password" name="password" value={this.state.password} required/>
+                        <input className="form-input" onChange={this.handleChange} type="password" name="password" value={this.state.password} required/>
                         {errors.password.length > 0 &&
                             <span className="error">{errors.password}</span>}
                     </div>

@@ -15,6 +15,9 @@ function NavBar({ currentUser, logout }) {
             </div>
             <div className="nav-items">
                 <ul className="nav-right">
+                    <li>
+                        <NavLink to="/" className="nav-link">Home</NavLink>
+                    </li>
                     {!currentUser && (
                     <React.Fragment>
                         <li>
@@ -25,14 +28,14 @@ function NavBar({ currentUser, logout }) {
                         </li>
                     </React.Fragment>
                     )}
+                    <li>
+                        <NavLink to="/meals" className="nav-link">Search Meals</NavLink>
+                    </li>
                     {currentUser && (
                     <React.Fragment>
                         <li>
                             <NavLink to="/profile" className="nav-link">Profile</NavLink>
                         </li>  
-                        <li>
-                            <NavLink to="/meals" className="nav-link">Search Meals</NavLink>
-                        </li>
                         <li>
                             <NavLink to="/" onClick={logout} className="nav-link">Log Out</NavLink>
                         </li>              
