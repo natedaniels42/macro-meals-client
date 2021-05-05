@@ -36,7 +36,7 @@ class MealList extends React.Component {
             <div className="meallist-box">
                 <h2 className="list-name">{this.props.mealList.name}</h2>
                 <div className="button-box">
-                    <NavLink to={`/profile/${this.state.mealList._id}`} mealList={this.props.mealList._id}><button >Update List Name</button></NavLink>
+                    <NavLink to={`/profile/${this.state.mealList._id}`} mealList={this.props.mealList}><button >Update List Name</button></NavLink>
                     <NavLink className="search-button" to="/meals" meallist={this.props.mealList}><button>Search Meals</button></NavLink>
                 </div>
                 <div className="delete-button">
