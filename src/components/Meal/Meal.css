@@ -1,5 +1,6 @@
 .meal-box {
     width: 300px;
+    margin-left: 20px;
 }
 .meal-container {
     display: flex;
@@ -33,6 +34,8 @@
     height: 300px;
     display: flex;
     flex-direction: row;
+    margin: 10px 0;
+    box-shadow: 2px 2px 10px 0 black, -2px -2px 10px lightgray, inset 0 0 150px gray;
 }
 
 .meal-image:hover + .meal-name{
@@ -50,15 +53,9 @@
 .nutrition-info {
     margin: 10px;
 }
-/*
-.ingredient-list {
-     position: absolute;
-     right: 20px;
-     bottom: 20px;
-}
-*/
+
 .ingredient-box {
-     padding: 5px;
+     padding: 20px;
      margin-bottom: 20px;
 }
   
@@ -70,11 +67,10 @@
 }
 
 .add-meal {
-    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
-    margin-top: 20px;
+    padding-bottom: 20px;
+    margin: 40px;
     background-color: lightgray;
     box-shadow: 2px 2px 5px 0 black, -2px -2px 5px 0 lightgray;
 }

@@ -31,6 +31,12 @@ class MealList extends React.Component {
             .catch((err) => console.log(err));
     }
 
+    handleRemove = (e) => {
+        MealListModel.removeMeal(this.props.mealList._id, e.target.id)
+            //.then((result) => this.props.history.push('/profile'))
+            .catch((err) => console.log(err));
+    }
+
     render() {
         return (
             <div className="meallist-box">
@@ -43,7 +49,12 @@ class MealList extends React.Component {
                     <button onClick={this.handleDelete}>delete list</button>
                 </div>
                 {this.state.mealList.meals && (
-                    this.state.mealList.meals.map((meal) => {return <Meal key={meal._id} meal={meal} list={true} />
+                    this.state.mealList.meals.map((meal) => {return (
+                        <div>
+                            <Meal key={meal._id} meal={meal} list={true} />
+                            <button id={meal._id} onClick={this.handleRemove}>Remove Meal</button>
+                        </div>
+                        )
                     })
                 )
             }

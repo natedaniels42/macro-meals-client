@@ -50,6 +50,17 @@ class MealListModel {
         })
         .then((response) => response.json())
     };
+
+    static removeMeal = (mealListId, mealId) => {
+        console.log(mealId);
+        return fetch(`${url}/${mealListId}/removemeal/${mealId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
+    };
 };
 
 export default MealListModel;

@@ -12,7 +12,7 @@ body {
 main {
   position: relative;
   top: 40px;
-  min-height: 92vh;
+  min-height: 100vh;
 }
 
 h1 {
