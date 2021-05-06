@@ -5,18 +5,29 @@ import './Update.css';
 
 class UpdateMealListContainer extends React.Component {
     state = {
-        name: this.props.name,
+        mealList: {},
+        name: ''
     }
 
-
+    componentDidMount () {
+        MealListModel.getMealListById(this.props.match.params.id)
+            .then((result) => {
+                this.setState({mealList: result, name: result.name});
+            })
+            .catch((err) => console.log(err));
+    }
 
     handleChange = (event) => {
-        this.setState({[event.target.name]: event.target.value})
+        const { mealList } = { ...this.state };
+        const currentState = mealList;
+        const { name, value } = event.target;
+        currentState[name] = value;
+        this.setState({ mealList: currentState });
     };
 
     handleSubmit = (event) => {
         event.preventDefault();
-        MealListModel.updateMealList(this.props.mealList)
+        MealListModel.updateMealList(this.state.mealList, this.state.mealList._id)
             .then((result) => {
                 console.log(result);
             });
@@ -31,7 +42,7 @@ class UpdateMealListContainer extends React.Component {
                 <form className="form-box" onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name</label>
-                        <input onInput={this.handleChange} type="text" name="name" value={this.state.name} />
+                        <input onInput={this.handleChange} type="text" name="name"/>
                     </div>
                     <button className="update-button" type="submit">Update Name</button>
                 </form>

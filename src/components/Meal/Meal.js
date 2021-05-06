@@ -34,8 +34,15 @@ class Meal extends React.Component {
                 </Link>    
                 {!this.props.list && (
                 <div>
+                    <p>Click <a className="meal-link" href={this.props.meal.link} target="_blank" rel="noopener norefferer">here</a> to go to the recipe</p>    
+                    <div className="nutrition-info">
+                        <p>Calories: {this.props.meal.calories}</p>
+                        <p>Carbs: {this.props.meal.carbs}g</p>
+                        <p>Protein: {this.props.meal.protein}g</p>
+                        <p>Fat: {this.props.meal.fat}g</p>
+                    </div>
                     <div className="ingredient-list">
-                        <h4>Ingredient List</h4>
+                        <h4>Ingredients</h4>
                         <div className="ingredient-box">
                         {this.props.meal.ingredients && (
                             this.props.meal.ingredients.map((ingredient, index) => {
@@ -44,13 +51,6 @@ class Meal extends React.Component {
                             
                         )}
                         </div>
-                    </div>
-                    <p>Click <a className="meal-link" href={this.props.meal.link} target="_blank" rel="noopener norefferer">here</a> to go to the recipe</p>    
-                    <div className="nutrition-info">
-                        <p>Calories: {this.props.meal.calories}</p>
-                        <p>Carbs: {this.props.meal.carbs}g</p>
-                        <p>Protein: {this.props.meal.protein}g</p>
-                        <p>Fat: {this.props.meal.fat}g</p>
                     </div>
                     <form className="add-meal" onSubmit={this.handleSubmit}>
                         <label htmlFor="mealList">Choose a list to add this meal:</label>

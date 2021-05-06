@@ -1,4 +1,4 @@
-const url = 'https://glacial-citadel-34005.herokuapp.com/api/v1/mealList';
+const url = 'http://localhost:4000/api/v1/mealList';
 
 class MealListModel {
     static getAllMealsLists = () => {
@@ -49,6 +49,17 @@ class MealListModel {
             method: 'POST',  
         })
         .then((response) => response.json())
+    };
+
+    static removeMeal = (mealListId, mealId) => {
+        console.log(mealId);
+        return fetch(`${url}/${mealListId}/removemeal/${mealId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
     };
 };
 

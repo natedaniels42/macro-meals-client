@@ -41,6 +41,7 @@ nav {
     width: 50%;
     right: 0;
     height: 40px;
+    color: white;
 }
 
 .nav-right {
@@ -61,10 +62,12 @@ nav {
 .nav-link {
     color:white;
     text-decoration: none;
-    padding: 0 5px;
+    padding: 0 10px;
     height: 100%;
 }
 
 .nav-link:hover {
     background-color: #94CC51;
+    color: white;
 }
+

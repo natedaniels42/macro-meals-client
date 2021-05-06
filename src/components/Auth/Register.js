@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
 
-const url = `https://glacial-citadel-34005.herokuapp.com/api/v1/auth/register`;
+const url = `http://localhost:4000/api/v1/auth/register`;
 const validEmailRegex = 
   RegExp(/^\w+@\w+\.\w+$/i);
 
@@ -18,6 +18,7 @@ class Register extends React.Component {
             username: '',
             email: '', 
             password: '',
+            form: '',
         }
     };
     
@@ -69,10 +70,12 @@ class Register extends React.Component {
                 .catch((err) => {
                     console.log(err.response.status);
                     console.log(err.response.data);
-                    console.log(err.response.message);
+                    console.log(err.response.data.message);
+                    alert(err.response.data.message);
                 });
         } else {
             console.log('Invalid form');
+            alert('invalid form');
         }
     }
 
@@ -90,25 +93,25 @@ class Register extends React.Component {
                 <div className="form-box">
                     <div className="form-group">
                         <label htmlFor="name">Name: </label>
-                        <input onChange={this.handleChange} type="text" id="name" name="name" value={this.state.name} />
+                        <input className="form-input" onChange={this.handleChange} type="text" id="name" name="name" value={this.state.name} />
                         {errors.name.length > 0 &&
                             <span className="error">{errors.name}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="username">Username: </label>
-                        <input onChange={this.handleChange} type="text" id="username" name="username"  />
+                        <input className="form-input" onChange={this.handleChange} type="text" id="username" name="username"  />
                         {errors.username.length > 0 && 
                             <span className="error">{errors.username}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email: </label>
-                        <input onChange={this.handleChange} type="text" id="email" name="email" value={this.state.email} />
+                        <input className="form-input" onChange={this.handleChange} type="text" id="email" name="email" value={this.state.email} />
                         {errors.email.length > 0 && 
                             <span className="error">{errors.email}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password: </label>
-                        <input onChange={this.handleChange} type="password" id="password" name="password" />
+                        <input className="form-input" onChange={this.handleChange} type="password" id="password" name="password" />
                         {errors.password.length > 0 &&
                             <span className="error">{errors.password}</span>}
                     </div>

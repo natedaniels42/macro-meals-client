@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
     return (
         <footer>
-            <p className="copyright">&copy;2020 <span className="company-name2">Macro Meals</span></p>
+            <p className="copyright">Copyright &copy;2021 Macro Meals</p>
         </footer>
     )
 }

@@ -1,5 +1,6 @@
 .meal-box {
     width: 300px;
+    margin-left: 20px;
 }
 .meal-container {
     display: flex;
@@ -11,7 +12,7 @@
     width: 300px;
     height: 300px;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 1;
 }
 
 .meal-link {
@@ -19,8 +20,12 @@
     text-decoration: none;
 }
 
+.meal-link:hover {
+    color: rebeccapurple;
+} 
+
 .meal-image:hover {
-    opacity: 1.0;
+    opacity: 0.2;
 }
 
 .meal-card {
@@ -29,29 +34,28 @@
     height: 300px;
     display: flex;
     flex-direction: row;
+    margin: 10px 0;
+    box-shadow: 2px 2px 10px 0 black, -2px -2px 10px lightgray, inset 0 0 150px gray;
 }
 
+.meal-image:hover + .meal-name{
+    opacity: 1;
+}
 .meal-name {
     position: absolute;
     bottom: 0;
     color: black;
     font-size: 20px;
     overflow: hidden;
+    opacity: 0;
 }
 
 .nutrition-info {
-    margin-top: 10px;
-}
-
-.ingredient-list {
-     position: absolute;
-     right: 20px;
-     bottom: 20px;
+    margin: 10px;
 }
 
 .ingredient-box {
-     border: 2px solid #75B32B;
-     padding: 5px;
+     padding: 20px;
      margin-bottom: 20px;
 }
   
@@ -63,13 +67,14 @@
 }
 
 .add-meal {
-    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
-    margin-top: 20px;
+    padding-bottom: 20px;
+    margin: 40px;
+    background-color: lightgray;
+    box-shadow: 2px 2px 5px 0 black, -2px -2px 5px 0 lightgray;
 }
 
 .add-meal div, label {
-   margin: 0 auto;
+   margin-left: 50px;
 }
