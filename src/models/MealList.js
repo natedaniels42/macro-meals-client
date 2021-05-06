@@ -11,8 +11,8 @@ class MealListModel {
             .then((response) => response.json())
     }
 
-    static createMealList = (mealList) => {
-        return fetch(url, {
+    static createMealList = (mealList, userId) => {
+        return fetch(`${url}/${userId}`, {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',

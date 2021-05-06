@@ -6,7 +6,15 @@ import './NewMealListContainer.css';
 class NewMealListContainer extends React.Component {
     state = {
         name: '',
+        userId: '',
     };
+
+    componentDidMount() {
+        const base64Url = localStorage.token.split('.')[1];
+        const base64 = base64Url.replace('-', '+').replace('_', '/');
+        console.log(JSON.parse(window.atob(base64)).id);
+        this.setState({userId: JSON.parse(window.atob(base64)).id});
+    }
 
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value})   
@@ -14,7 +22,7 @@ class NewMealListContainer extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        MealListModel.createMealList(this.state)
+        MealListModel.createMealList(this.state, this.state.userId)
             .then((result) => {
                 console.log(result);
             });
