@@ -26,7 +26,7 @@ class MealList extends React.Component {
     }
     
     handleDelete = () => {
-        MealListModel.deleteMealList(this.props.mealList/*._id*/)
+        MealListModel.deleteMealList(this.props.mealList/*._id*/, localStorage.currentUser)
             .then((result) => this.props.history.push('/profile'))
             .catch((err) => console.log(err));
     }

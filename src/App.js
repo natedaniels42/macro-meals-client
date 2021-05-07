@@ -27,6 +27,7 @@ class App extends React.Component {
     localStorage.setItem('token', token);
     setAuthHeader(token);
     const decodedToken = jwt_decode(token);
+    localStorage.setItem('currentUser', decodedToken.id);
     this.setState({currentUser: decodedToken.id});
   };
 
@@ -35,6 +36,7 @@ class App extends React.Component {
     localStorage.removeItem('name');
     localStorage.removeItem('email');
     localStorage.removeItem('image');
+    localStorage.removeItem('currentUser');
     setAuthHeader();
     this.setState({currentUser: ''});
     this.props.history.push('/');
