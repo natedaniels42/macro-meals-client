@@ -12,13 +12,13 @@ import UpdateMealListContainer from '../pages/UpdateMealListContainer/UpdateMeal
 
 export default ({ currentUser, setCurrentUser, props }) => (
     <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/meals/:id' component={MealContainer} />
-        <Route path='/meals' component={MealsListContainer} />
+        <Route exact path='/' component={Home} currentUser={currentUser}/>
+        <Route path='/meals/:id' component={MealContainer} currentUser={currentUser}/>
+        <Route path='/meals' component={MealsListContainer} currentUser={currentUser}/>
         <Route path='/signup' component={Register} />
         <Route path='/login' render={() => <Login setCurrentUser={setCurrentUser} />} />
-        <Route exact path='/profile/new' component={NewMealListContainer} />
-        <Route path='/profile/:id' render={() => <UpdateMealListContainer props={props} />} />
+        <Route exact path='/profile/new' component={NewMealListContainer} currentUser={currentUser} />
+        <Route path='/profile/:id' render={() => <UpdateMealListContainer props={props} currentUser={currentUser} />} />
         <Route path='/profile' render={() => <ProfileContainer currentUser={currentUser} />} />
     </Switch>
 )

@@ -2,12 +2,22 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './Meal.css';
 import MealListModel from '../../models/MealList';
+import UserModel from '../../models/User';
 
 class Meal extends React.Component {
     state = {
         mealList: '',
+        mealLists: [],
+        currentUser: {},
     }
     
+    componentDidMount() {
+        UserModel.getUserById(localStorage.currentUser)
+            .then((result) => {
+                this.setState({currentUser: result});
+            })
+    }
+
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
     };

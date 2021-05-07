@@ -1,5 +1,5 @@
 import React from 'react';
-//import UserModel from '../../models/User';
+import UserModel from '../../models/User';
 import MealListModel from '../../models/MealList';
 import MealLists from '../../components/MealLists/MealLists';
 import Profile from '../../components/Profile/Profile';
@@ -10,26 +10,42 @@ class ProfileContainer extends React.Component {
         email: '',
         name: '',
         image: '',
+        memberSince: '',
         mealLists: [], 
     };
     
     componentDidMount() {
-        const email = localStorage.getItem('email');
-        const name = localStorage.getItem('name');
-        const image = localStorage.getItem('image');
-        this.setState({email: email, name: name, image: image});
+        UserModel.getUserById(this.props.currentUser)
+            .then((result) => {
+                /*console.log(result);
+                const mealLists = [];
+                result.mealLists.forEach(mealList => {
+                    MealListModel.getMealListById(mealList)
+                        .then((result) => {
+                            console.log(result);
+                            //mealLists.push(result);
+                        })
+                    })
+                */    
+                this.setState({email: result.email, name: result.name, image: result.image, memberSince: result.memberSince, mealLists: result.mealLists});
+                
+            })
+            .catch((err) => console.log(err))
+        /*
         MealListModel.getAllMealsLists()
             .then((result) => {
                 this.setState({mealLists: result});
             })
-            .catch((err) => console.log(err))
+                   
+            .catch((err) => console.log(err)) 
+        */
+        
     }
-
-
+    
     render() {
         return(
             <div className="profile-page">
-                <Profile email={this.state.email} name={this.state.name} image={this.state.image} />
+                <Profile email={this.state.email} name={this.state.name} image={this.state.image} membersince={this.state.memberSince} userId={this.props.currentUser}/>
                 <MealLists mealLists={this.state.mealLists} /> 
             </div>
         )

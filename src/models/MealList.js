@@ -11,8 +11,8 @@ class MealListModel {
             .then((response) => response.json())
     }
 
-    static createMealList = (mealList) => {
-        return fetch(url, {
+    static createMealList = (mealList, userId) => {
+        return fetch(`${url}/${userId}`, {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
@@ -33,8 +33,8 @@ class MealListModel {
             .then((response) => response.json())
     };
 
-    static deleteMealList = (id) => {
-        return fetch (`${url}/${id}`, {
+    static deleteMealList = (mealListId, userId) => {
+        return fetch (`${url}/${mealListId}/delete/${userId}`, {
             method: 'DELETE', 
             headers: {
                 'Content-Type': 'application/json',
