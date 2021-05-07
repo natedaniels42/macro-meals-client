@@ -16,22 +16,32 @@ class ProfileContainer extends React.Component {
     
     componentDidMount() {
         UserModel.getUserById(this.props.currentUser)
-           
             .then((result) => {
-                console.log(result.mealLists); 
-                this.setState({email: result.email, name: result.name, image: result.image, memberSince: result.memberSince});
-
+                /*console.log(result);
+                const mealLists = [];
+                result.mealLists.forEach(mealList => {
+                    MealListModel.getMealListById(mealList)
+                        .then((result) => {
+                            console.log(result);
+                            //mealLists.push(result);
+                        })
+                    })
+                */    
+                this.setState({email: result.email, name: result.name, image: result.image, memberSince: result.memberSince, mealLists: result.mealLists});
+                
             })
             .catch((err) => console.log(err))
+        /*
         MealListModel.getAllMealsLists()
             .then((result) => {
-                console.log(result);
                 this.setState({mealLists: result});
             })
-            .catch((err) => console.log(err))
+                   
+            .catch((err) => console.log(err)) 
+        */
+        
     }
-
-
+    
     render() {
         return(
             <div className="profile-page">
