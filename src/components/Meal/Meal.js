@@ -16,6 +16,7 @@ class Meal extends React.Component {
             .then((result) => {
                 this.setState({currentUser: result});
             })
+        
     }
 
     handleChange = (event) => {

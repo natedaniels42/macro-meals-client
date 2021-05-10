@@ -2,8 +2,8 @@ const url = 'http://localhost:4000/api/v1/mealList';
 
 class MealListModel {
     static getAllMealsLists = () => {
-        return fetch(url) 
-            .then((response) => response.json())
+        const response = fetch(url);
+        return response.json();
     };
 
     static getMealListById = (mealListId) => {

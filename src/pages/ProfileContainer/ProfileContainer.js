@@ -27,7 +27,7 @@ class ProfileContainer extends React.Component {
                         })
                     })
                 */    
-                this.setState({email: result.email, name: result.name, image: result.image, memberSince: result.memberSince, mealLists: result.mealLists});
+                this.setState({email: result.email, username: result.username, image: result.image, memberSince: result.memberSince, mealLists: result.mealLists});
                 
             })
             .catch((err) => console.log(err))
