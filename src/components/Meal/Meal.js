@@ -77,7 +77,19 @@ class Meal extends React.Component {
                     </div>
                     <form className="add-meal" onSubmit={this.handleSubmit}>
                         <label htmlFor="mealList">Choose a list to add this meal:</label>
-                        {this.renderMealLists()}
+                        {!this.state.mealLists && (
+                            <span>Loading...</span>
+                        )}
+                        {this.state.mealLists && (
+                            this.state.mealLists.map((list, index) => {
+                                return (
+                                    <div>
+                                        <input type="radio" key={`meallist${index}`} name="mealList"onInput={this.handleChange} value={list._id} />
+                                        <label htmlFor={`meallist${index}`}>{list.name}</label>
+                                    </div>
+                                )
+                            })
+                        )}
                         <button type="submit">Add Meal to List</button>
                     </form>
                 </div>   
