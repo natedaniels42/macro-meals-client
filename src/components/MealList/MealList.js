@@ -1,6 +1,7 @@
 import React from 'react';
 import Meal from '../Meal/Meal';
 import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import MealListModel from '../../models/MealList';
 import './MealList.css';
 
@@ -10,29 +11,21 @@ class MealList extends React.Component {
     }
     
     componentDidMount() {
-        MealListModel.getMealListById(this.props.mealList/*._id*/)
+        MealListModel.getMealListById(this.props.mealList._id)
             .then((result) => {
                 this.setState({mealList: result})
             })
             .catch((err) => console.log(err))
     } 
     
-    componentDidUpdate() {
-        MealListModel.getMealListById(this.props.mealList/*._id*/)
-            .then((result) => {
-                this.setState({mealList: result})
-            })
-            .catch((err) => console.log(err))
-    }
-    
     handleDelete = () => {
-        MealListModel.deleteMealList(this.props.mealList/*._id*/, localStorage.currentUser)
+        MealListModel.deleteMealList(this.props.mealList._id, localStorage.currentUser)
             .then((result) => this.props.history.push('/profile'))
             .catch((err) => console.log(err));
     }
 
     handleRemove = (e) => {
-        MealListModel.removeMeal(this.props.mealList/*._id*/, e.target.id)
+        MealListModel.removeMeal(this.props.mealList._id, e.target.id)
             //.then((result) => this.props.history.push('/profile'))
             .catch((err) => console.log(err));
     }
@@ -66,4 +59,4 @@ class MealList extends React.Component {
 
 
 
-export default MealList;
+export default withRouter(MealList);

@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import './App.css';
 import setAuthHeader from './utils/setAuthHeader';
+import UserModel from './models/User';
 
 class App extends React.Component {
   state= {
@@ -28,15 +29,18 @@ class App extends React.Component {
     setAuthHeader(token);
     const decodedToken = jwt_decode(token);
     localStorage.setItem('currentUser', decodedToken.id);
+
+    UserModel.getUserById(decodedToken.id) 
+      .then((result) => {
+        localStorage.setItem('username', result.username);
+        localStorage.setItem('image', result.image);
+        localStorage.setItem('mealLists', result.mealLists);
+      })
     this.setState({currentUser: decodedToken.id});
   };
 
   logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('name');
-    localStorage.removeItem('email');
-    localStorage.removeItem('image');
-    localStorage.removeItem('currentUser');
+    localStorage.clear();
     setAuthHeader();
     this.setState({currentUser: ''});
     this.props.history.push('/');

@@ -2,12 +2,17 @@ const url = 'https://glacial-citadel-34005.herokuapp.com/api/v1/mealList';
 
 class MealListModel {
     static getAllMealsLists = () => {
-        return fetch(url) 
-            .then((response) => response.json())
+        return fetch(url)
+            .then((response) => response.json());
     };
 
     static getMealListById = (mealListId) => {
         return fetch(`${url}/${mealListId}`)
+            .then((response) => response.json())
+    }
+
+    static findByUser = (userId) => {
+        return fetch(`${url}/${userId}/findbyuser`)
             .then((response) => response.json())
     }
 
@@ -33,8 +38,8 @@ class MealListModel {
             .then((response) => response.json())
     };
 
-    static deleteMealList = (mealListId, userId) => {
-        return fetch (`${url}/${mealListId}/delete/${userId}`, {
+    static deleteMealList = (mealListId) => {
+        return fetch (`${url}/${mealListId}`, {
             method: 'DELETE', 
             headers: {
                 'Content-Type': 'application/json',
