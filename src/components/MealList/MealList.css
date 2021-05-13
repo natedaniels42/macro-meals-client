@@ -34,3 +34,9 @@ button:active {
     opacity: .8;
     color: white;
 }
+
+.meals-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+} 

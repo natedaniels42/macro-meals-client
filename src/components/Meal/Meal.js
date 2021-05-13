@@ -38,15 +38,12 @@ class Meal extends React.Component {
         event.preventDefault();
         MealListModel.addMeal(this.state.mealList, this.props.match.params.id)
             .then((result) => {
-                console.log(this.props.meals)
-                console.log(result);
                 result.meals.push(this.props.meal);
             })
         this.props.history.push('/profile');
     }
 
     render() {
-        const { mealLists } = this.state;
         return (
             <div className="meal-box">
                 <Link to={`/meals/${this.props.meal._id}`}>
