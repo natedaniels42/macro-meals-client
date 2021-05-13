@@ -24,8 +24,6 @@ class NewMealListContainer extends React.Component {
         event.preventDefault();
         MealListModel.createMealList(this.state, this.state.userId)
             .then((result) => {
-                const mealLists = localStorage.mealLists + ',' + result.savedMealList._id;
-                localStorage.setItem('mealLists', mealLists);
                 console.log(result);
             });
         this.props.history.push('/profile');

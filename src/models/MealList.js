@@ -2,8 +2,8 @@ const url = 'http://localhost:4000/api/v1/mealList';
 
 class MealListModel {
     static getAllMealsLists = () => {
-        const response = fetch(url);
-        return response.json();
+        return fetch(url)
+            .then((response) => response.json());
     };
 
     static getMealListById = (mealListId) => {
@@ -33,8 +33,8 @@ class MealListModel {
             .then((response) => response.json())
     };
 
-    static deleteMealList = (mealListId, userId) => {
-        return fetch (`${url}/${mealListId}/delete/${userId}`, {
+    static deleteMealList = (mealListId) => {
+        return fetch (`${url}/${mealListId}`, {
             method: 'DELETE', 
             headers: {
                 'Content-Type': 'application/json',

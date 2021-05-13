@@ -14,9 +14,20 @@ class Meal extends React.Component {
     componentDidMount() {
         UserModel.getUserById(localStorage.currentUser)
             .then((result) => {
-                this.setState({currentUser: result});
+                this.setState({currentUser: result, mealLists: this.props.mealLists});
             })
         
+    }
+
+    renderMealLists() {
+        return this.state.mealLists.map((list, index) => {
+            return (
+                <div>
+                    <input type="radio" key={`meallist${index}`} name="mealList"onInput={this.handleChange} value={list._id} />
+                    <label htmlFor={`meallist${index}`}>{list.name}</label>
+                </div>
+            )
+        })
     }
 
     handleChange = (event) => {
@@ -35,6 +46,7 @@ class Meal extends React.Component {
     }
 
     render() {
+        const { mealLists } = this.state;
         return (
             <div className="meal-box">
                 <Link to={`/meals/${this.props.meal._id}`}>
@@ -65,15 +77,7 @@ class Meal extends React.Component {
                     </div>
                     <form className="add-meal" onSubmit={this.handleSubmit}>
                         <label htmlFor="mealList">Choose a list to add this meal:</label>
-                        {this.props.mealLists && (
-                            this.props.mealLists.map((list, index) => {
-                                return <div>
-                                <input type="radio" key={`meallist${index}`} name="mealList"onInput={this.handleChange} value={list._id} />
-                                <label htmlFor={`meallist${index}`}>{list.name}</label>
-                            </div>
-                                })
-                        )}
-                    
+                        {this.renderMealLists()}
                         <button type="submit">Add Meal to List</button>
                     </form>
                 </div>   

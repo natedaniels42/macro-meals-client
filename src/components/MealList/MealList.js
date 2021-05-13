@@ -1,6 +1,7 @@
 import React from 'react';
 import Meal from '../Meal/Meal';
 import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import MealListModel from '../../models/MealList';
 import './MealList.css';
 
@@ -66,4 +67,4 @@ class MealList extends React.Component {
 
 
 
-export default MealList;
+export default withRouter(MealList);
