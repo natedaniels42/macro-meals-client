@@ -12,6 +12,7 @@ class ProfileContainer extends React.Component {
         image: '',
         memberSince: '',
         mealLists: [], 
+        isMounted: false,
     };
     
     componentDidMount() {
@@ -27,14 +28,13 @@ class ProfileContainer extends React.Component {
                         })
                     })
                 */    
-                this.setState({email: result.email, username: result.username, image: result.image, memberSince: result.memberSince});
+                this.setState({email: result.email, username: result.username, image: result.image, memberSince: result.memberSince, isMounted: true});
                 
             })
             .catch((err) => console.log(err))
         
         MealListModel.findByUser(this.props.currentUser)
             .then((result) => {
-                console.log(result)
                 this.setState({mealLists: result});
             })
                    
@@ -42,12 +42,34 @@ class ProfileContainer extends React.Component {
         
         
     }
+
+    componentDidUpdate() {
+        if (this.state.isMounted) {
+            MealListModel.findByUser(this.props.currentUser)
+                .then((result) => {
+                    this.setState({mealLists: result});
+                })
+                       
+                .catch((err) => console.log(err)) 
+        }
+    }
+
+    componentWillUnmount() {
+        this.setState({isMounted: false});
+    }
     
+    deleteList(mealListId, userId) {
+        MealListModel.deleteMealList(mealListId, userId)
+            .then((result) => window.location.reload())//this.props.history.push('/profile'))
+            .catch((err) => console.log(err));
+
+    }
+
     render() {
         return(
             <div className="profile-page">
                 <Profile email={this.state.email} name={this.state.name} image={this.state.image} membersince={this.state.memberSince} userId={this.props.currentUser}/>
-                <MealLists mealLists={this.state.mealLists} /> 
+                <MealLists mealLists={this.state.mealLists} deleteList={this.deleteList} /> 
             </div>
         )
     }

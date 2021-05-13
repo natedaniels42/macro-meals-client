@@ -34,7 +34,6 @@ class App extends React.Component {
       .then((result) => {
         localStorage.setItem('username', result.username);
         localStorage.setItem('image', result.image);
-        localStorage.setItem('mealLists', result.mealLists);
       })
     this.setState({currentUser: decodedToken.id});
   };

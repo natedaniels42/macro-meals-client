@@ -18,10 +18,16 @@ class MealList extends React.Component {
             .catch((err) => console.log(err))
     } 
     
+    componentDidUpdate() {
+        MealListModel.getMealListById(this.props.mealList._id)
+        .then((result) => {
+            this.setState({mealList: result})
+        })
+        .catch((err) => console.log(err))
+    }
+    
     handleDelete = () => {
-        MealListModel.deleteMealList(this.props.mealList._id, localStorage.currentUser)
-            .then((result) => this.props.history.push('/profile'))
-            .catch((err) => console.log(err));
+        this.props.deleteList(this.state.mealList._id, localStorage.currentUser);
     }
 
     handleRemove = (e) => {
@@ -42,16 +48,18 @@ class MealList extends React.Component {
                 <div className="delete-button">
                     <button onClick={this.handleDelete}>delete list</button>
                 </div>
-                {this.state.mealList.meals && (
-                    this.state.mealList.meals.map((meal) => {return (
-                        <div>
-                            <Meal key={meal._id} meal={meal} list={true} />
-                            <button id={meal._id} onClick={this.handleRemove}>Remove Meal</button>
-                        </div>
-                            )
-                        })
-                    )
-                }
+                <div className="meals-box">
+                    {this.state.mealList.meals && (
+                        this.state.mealList.meals.map((meal) => {return (
+                            <div>
+                                <Meal key={meal._id} meal={meal} list={true} />
+                                <button id={meal._id} onClick={this.handleRemove}>Remove Meal</button>
+                            </div>
+                                )
+                            })
+                        )
+                    }
+                </div>
             </div>
         )
     }
