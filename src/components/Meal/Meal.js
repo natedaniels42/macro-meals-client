@@ -77,9 +77,6 @@ class Meal extends React.Component {
                     </div>
                     <form className="add-meal" onSubmit={this.handleSubmit}>
                         <label htmlFor="mealList">Choose a list to add this meal:</label>
-                        {!this.state.mealLists && (
-                            <span>Loading...</span>
-                        )}
                         {this.state.mealLists && (
                             this.state.mealLists.map((list, index) => {
                                 return (
