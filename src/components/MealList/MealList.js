@@ -17,11 +17,17 @@ class MealList extends React.Component {
             })
             .catch((err) => console.log(err))
     } 
-    
+    /*
+    componentDidUpdate() {
+        MealListModel.getMealListById(this.props.mealList._id)
+        .then((result) => {
+            this.setState({mealList: result})
+        })
+        .catch((err) => console.log(err))
+    }
+    */
     handleDelete = () => {
-        MealListModel.deleteMealList(this.props.mealList._id, localStorage.currentUser)
-            .then((result) => this.props.history.push('/profile'))
-            .catch((err) => console.log(err));
+        this.props.deleteList(this.state.mealList._id, localStorage.currentUser);
     }
 
     handleRemove = (e) => {

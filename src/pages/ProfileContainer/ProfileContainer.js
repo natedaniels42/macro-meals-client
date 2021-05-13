@@ -42,12 +42,31 @@ class ProfileContainer extends React.Component {
         
         
     }
+
+    componentDidUpdate() {
+        MealListModel.findByUser(this.props.currentUser)
+            .then((result) => {
+                console.log(result)
+                this.setState({mealLists: result});
+            })
+                   
+            .catch((err) => console.log(err)) 
+        
+    }
     
+    deleteList(mealListId, userId) {
+        MealListModel.deleteMealList(mealListId, userId)
+            .then((result) => window.location.reload())//this.props.history.push('/profile'))
+            .then()
+            .catch((err) => console.log(err));
+
+    }
+
     render() {
         return(
             <div className="profile-page">
                 <Profile email={this.state.email} name={this.state.name} image={this.state.image} membersince={this.state.memberSince} userId={this.props.currentUser}/>
-                <MealLists mealLists={this.state.mealLists} /> 
+                <MealLists mealLists={this.state.mealLists} deleteList={this.deleteList} /> 
             </div>
         )
     }
