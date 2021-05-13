@@ -27,18 +27,19 @@ class ProfileContainer extends React.Component {
                         })
                     })
                 */    
-                this.setState({email: result.email, username: result.username, image: result.image, memberSince: result.memberSince, mealLists: result.mealLists});
+                this.setState({email: result.email, username: result.username, image: result.image, memberSince: result.memberSince});
                 
             })
             .catch((err) => console.log(err))
-        /*
-        MealListModel.getAllMealsLists()
+        
+        MealListModel.findByUser(this.props.currentUser)
             .then((result) => {
+                console.log(result)
                 this.setState({mealLists: result});
             })
                    
             .catch((err) => console.log(err)) 
-        */
+        
         
     }
     

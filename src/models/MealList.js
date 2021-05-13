@@ -11,6 +11,11 @@ class MealListModel {
             .then((response) => response.json())
     }
 
+    static findByUser = (userId) => {
+        return fetch(`${url}/${userId}/findbyuser`)
+            .then((response) => response.json())
+    }
+
     static createMealList = (mealList, userId) => {
         return fetch(`${url}/${userId}`, {
             method: 'POST', 
