@@ -13,11 +13,13 @@ class Login extends React.Component {
         password: '',
         errors: {
             email: '',
-            password: ''
-        }
+            password: '',
+        },
+        invalid: '',
     };
 
     handleChange = (event) => {
+        this.setState({invalid: ''});
         const { name, value } = event.target;
         let errors = this.state.errors;
         this.setState({
@@ -46,8 +48,10 @@ class Login extends React.Component {
             .catch((err) => {
                 console.log(err.response.status);
                 console.log(err.response.data);
-                console.log(err.response.message);
-                alert(err.response.data.message);
+                console.log(err.response.data.message);
+                this.setState({email: '',
+                password: '',
+                invalid: err.response.data.message});
             });
     }
 
@@ -55,16 +59,19 @@ class Login extends React.Component {
         const { errors } = this.state;
         return (
             <form className="auth-form" onSubmit={this.handleSubmit}>
+                
                 <div className="form-box">
+                    {this.state.invalid.length > 0 &&
+                        <span className="error">{this.state.invalid}</span>}
                     <div className="form-group">
                         <label htmlFor="email">Email: </label>
-                        <input className="form-input" onChange={this.handleChange} type="email" name="email" value={this.state.email} required/>
+                        <input className="form-input" onChange={this.handleChange} type="email" name="email" value={this.state.email} />
                         {errors.email.length > 0 && 
                             <span className="error">{errors.email}</span>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password: </label>
-                        <input className="form-input" onChange={this.handleChange} type="password" name="password" value={this.state.password} required/>
+                        <input className="form-input" onChange={this.handleChange} type="password" name="password" value={this.state.password} />
                         {errors.password.length > 0 &&
                             <span className="error">{errors.password}</span>}
                     </div>

@@ -19,7 +19,9 @@ class Register extends React.Component {
             email: '', 
             password: '',
             form: '',
-        }
+        },
+        invalid: '',
+        exists: '',
     };
     
     componentDidMount = () => {
@@ -32,6 +34,7 @@ class Register extends React.Component {
     }
 
     handleChange = (event) => {
+        this.setState({invalid: ''});
         const { name, value } = event.target;
         let errors = this.state.errors;
         this.setState({
@@ -71,11 +74,11 @@ class Register extends React.Component {
                     console.log(err.response.status);
                     console.log(err.response.data);
                     console.log(err.response.data.message);
-                    alert(err.response.data.message);
+                    this.setState({invalid: err.response.data.message});
                 });
         } else {
             console.log('Invalid form');
-            alert('invalid form');
+            this.setState({exists: 'Account already exists'});
         }
     }
 
@@ -91,6 +94,8 @@ class Register extends React.Component {
         return (
             <form className="auth-form" onSubmit={this.handleSubmit}>
                 <div className="form-box">
+                    {this.state.exists.length > 0 && <span className="error">{this.state.exists}</span>}
+                    {this.state.invalid.length > 0 && <span className="error">{this.state.invalid}</span>}
                     <div className="form-group">
                         <label htmlFor="name">Name: </label>
                         <input className="form-input" onChange={this.handleChange} type="text" id="name" name="name" value={this.state.name} />
